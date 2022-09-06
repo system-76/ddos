@@ -15,8 +15,8 @@ import sys
 import time
 import json
 import time
-try: #pip3 install httpx requests speedtest colorama
-	import speedtest
+try: #pip3 install httpx requests colorama
+	
 	import colorama
 	import requests
 	import httpx
@@ -26,11 +26,11 @@ except Exception as e:
 
 class Color:
 	colorama.init(autoreset=True)
-	LB = colorama.Fore.LIGHTBLUE_EX
-	LC = colorama.Fore.LIGHTCYAN_EX
-	LG = colorama.Fore.LIGHTGREEN_EX
-	LR = colorama.Fore.LIGHTRED_EX
-	LY = colorama.Fore.LIGHTYELLOW_EX
+	LB = colorama.Fore.LIGHTBLUE
+	LC = colorama.Fore.CYAN
+	LG = colorama.Fore.GREEN
+	LR = colorama.Fore.RED
+	LY = colorama.Fore.YELLOW
 	RESET = colorama.Fore.RESET
 
 
@@ -66,11 +66,10 @@ class Home:
 		print(Color.LR+"["+Color.LG+"01"+Color.LR+"]"+Color.LC+" Proxy")
 		print(Color.LR+"["+Color.LG+"02"+Color.LR+"]"+Color.LC+" WebTool")
 		print(Color.LR+"["+Color.LG+"03"+Color.LR+"]"+Color.LC+" L4/L7/BBoS")
-		print(Color.LR+"["+Color.LG+"04"+Color.LR+"]"+Color.LC+" SpeedTest")
 		print("\n")
 		while True:
 			try:
-				sys.stdout.write(Color.LB+"╔═══"+Color.LR+"["+Color.LG+"F-Toolv2"+Color.LB+"@"+Color.LG+"Home"+Color.LR+"]"+Color.LB+"\n╚══> "+Color.RESET)
+				sys.stdout.write(Color.LB+"╔═══"+Color.LR+"["+Color.LG+"ENFORCER"+Color.LB+""+Color.LG+""+Color.LR+"]"+Color.LB+"\n╚══> "+Color.RESET)
 				option = input()
 				if option in ['01', '1']:
 					os.system('clear')
@@ -81,9 +80,6 @@ class Home:
 				elif option in ['03', '3']:
 					os.system('clear')
 					Tool.bbos()
-				elif option in ['04', '4']:
-					os.system('clear')
-					Tool.spdtest()
 				elif option in ['ref', 'REF']:
 					self.home()
 				elif option in ['home', 'HOME']:
@@ -252,23 +248,14 @@ class Tool:
 			os.system('clear')
 		except requests.exceptions.ConnectionError:
 			sys.exit(Color.LR+"\nError: Check your Internet Connection.")
-		print(f"""{Color.LG}
 
-     ___               _
-    / _ \_ __ _____  _(_) ___  ___
-   / /_)/ '__/ _ \ \/ / |/ _ \/ __|
-  / ___/| | | (_) >  <| |  __/\__ )
-  \/    |_|  \___/_/\_\_|\___||___/
-
-
-""")
 		print(Color.LR+"["+Color.LG+"01"+Color.LR+"]"+Color.LC+" HTTP PROXY")
 		print(Color.LR+"["+Color.LG+"02"+Color.LR+"]"+Color.LC+" HTTPS PROXY")
 		print(Color.LR+"["+Color.LG+"03"+Color.LR+"]"+Color.LC+" SOCKS4 PROXY")
 		print(Color.LR+"["+Color.LG+"04"+Color.LR+"]"+Color.LC+" SOCKS5 PROXY")
 		print("\n")
 		while True:
-				sys.stdout.write(Color.LB+"╔═══"+Color.LR+"["+Color.LG+"F-Toolv2"+Color.LB+"@"+Color.LG+"Proxy"+Color.LR+"]"+Color.LB+"\n╚══> "+Color.RESET)
+				sys.stdout.write(Color.LB+"╔═══"+Color.LR+"["+Color.LG+"ENFORCER"+Color.LB+"=>"+Color.LG+"Proxy"+Color.LR+"]"+Color.LB+"\n╚══> "+Color.RESET)
 				option = input()
 				if option in ['01', '1']:
 					with open("http.txt", 'w') as p:
@@ -310,16 +297,7 @@ class Tool:
 					print(Color.LR+"command: "+Color.LG+f"{option}"+Color.LR+" not found")
 
 	def webtools(self):
-		print(f"""{Color.LG}
 
-   __    __     _    _____            _
-  / / /\ \ \___| |__/__   \___   ___ | |
-  \ \/  \/ / _ \ '_ \ / /\/ _ \ / _ \| |
-   \  /\  /  __/ |_) / / | (_) | (_) | |
-    \/  \/ \___|_.__/\/   \___/ \___/|_|
-
-
-""")
 		print(Color.LR+"["+Color.LG+"01"+Color.LR+"]"+Color.LC+" LOOKUP")
 		print(Color.LR+"["+Color.LG+"02"+Color.LR+"]"+Color.LC+" IP INFO")
 		print(Color.LR+"["+Color.LG+"03"+Color.LR+"]"+Color.LC+" HTTP STATUS")
@@ -327,7 +305,7 @@ class Tool:
 		print(Color.LR+"["+Color.LG+"05"+Color.LR+"]"+Color.LC+" EXTRACT LINK")
 		print("\n")
 		while True:
-			sys.stdout.write(Color.LB+"╔═══"+Color.LR+"["+Color.LG+"F-Toolv2"+Color.LB+"@"+Color.LG+"Webtool"+Color.LR+"]"+Color.LB+"\n╚══> "+Color.RESET)
+			sys.stdout.write(Color.LB+"╔═══"+Color.LR+"["+Color.LG+"ENFORCER"+Color.LB+"=>"+Color.LG+"Webtool"+Color.LR+"]"+Color.LB+"\n╚══> "+Color.RESET)
 			option = input()
 			if option in ['01', '1']:
 				while True:
@@ -390,60 +368,13 @@ class Tool:
 			else:
 				print(Color.LR+"command: "+Color.LG+f"{option}"+Color.LR+" not found")
 
-	def spdtest(self):
-		print(f"""{Color.LG}
-
-   __                     _ _____          _
-  / _\_ __   ___  ___  __| /__   \___  ___| |_
-  \ \| '_ \ / _ \/ _ \/ _` | / /\/ _ \/ __| __|
-  _\ \ |_) |  __/  __/ (_| |/ / |  __/\__ \ |_
-  \__/ .__/ \___|\___|\__,_|\/   \___||___/\__|
-     |_|
-
-
-""")
-		try:
-			spdt = speedtest.Speedtest()
-
-			print(Color.LC+"[*] Loading Server List...")
-			spdt.get_servers()
-			time.sleep(0.1)
-
-			print(Color.LC+"[*] Choosing Best Server...")
-			get = spdt.get_best_server()
-			time.sleep(0.1)
-
-			print(Color.LC+"\n[+] "+Color.LC+"Host:"+Color.LY+f" {get['host']}")
-			time.sleep(0.1)
-			print(Color.LC+"[+] "+Color.LC+"Location:"+Color.LY+f" {get['name']}")
-
-			print(Color.LC+"\n[*] Performing Download Test...")
-			download_result = spdt.download()
-
-			print(Color.LC+"[*] Performing Upload Test...")
-			upload_result = spdt.upload()
-			ping_result = spdt.results.ping
-
-			time.sleep(0.1)
-			print(Color.LC+"\nResults:\n")
-			time.sleep(0.1)
-			print(Color.LC+"[+] Download Speed:"+Color.LY+f" {download_result / 1024 / 1024:.2f} mbps")
-			time.sleep(0.1)
-			print(Color.LC+"[+] Upload Speed:"+Color.LY+f" {upload_result / 1024 / 1024:.2f} mbps")
-			time.sleep(0.1)
-			print(Color.LC+"[+] Ping:"+Color.LY+f" {ping_result:.2f} ms")
-			print("\n")
-		except Exception:
-			print(Color.LR+"Error: Check your Internet Connection.\n\n")
-
-
 	def bbos(self):
 		print(Color.LR+"\n\n    [>    "+Color.LG+"Please use spoofed server for the best experience."+Color.LR+"    <]\n\n")
 		print(Color.LR+"["+Color.LG+"01"+Color.LR+"]"+Color.LC+" Layer4")
 		print(Color.LR+"["+Color.LG+"02"+Color.LR+"]"+Color.LC+" Layer7")
 		print("\n")
 		while True:
-			sys.stdout.write(Color.LB+"╔═══"+Color.LR+"["+Color.LG+"F-Toolv2"+Color.LB+"@"+Color.LG+"L4/L7/BBoS"+Color.LR+"]"+Color.LB+"\n╚══> "+Color.RESET)
+			sys.stdout.write(Color.LB+"╔═══"+Color.LR+"["+Color.LG+"ENFORCER"+Color.LB+"=>"+Color.LG+"L4/L7/BBoS"+Color.LR+"]"+Color.LB+"\n╚══> "+Color.RESET)
 			option = input()
 			if option in ['01', '1']:
 				os.system('clear');self.l4()
@@ -479,7 +410,7 @@ class Tool:
 		print(Color.LR+"["+Color.LG+"00"+Color.LR+"]"+Color.LC+" Return")
 		print("\n")
 		while True:
-			sys.stdout.write(Color.LB+"╔═══"+Color.LR+"["+Color.LG+"F-Toolv2"+Color.LB+"@"+Color.LG+"Layer4"+Color.LR+"]"+Color.LB+"\n╚══> "+Color.RESET)
+			sys.stdout.write(Color.LB+"╔═══"+Color.LR+"["+Color.LG+"ENFORCER"+Color.LB+"=>"+Color.LG+"Layer4"+Color.LR+"]"+Color.LB+"\n╚══> "+Color.RESET)
 			option = input()
 			if option in ['01', '1']:
 				try:
@@ -565,7 +496,7 @@ class Tool:
 		print(Color.LR+"["+Color.LG+"00"+Color.LR+"]"+Color.LC+" Return")
 		print("\n")
 		while True:
-			sys.stdout.write(Color.LB+"╔═══"+Color.LR+"["+Color.LG+"F-Toolv2"+Color.LB+"@"+Color.LG+"Layer7"+Color.LR+"]"+Color.LB+"\n╚══> "+Color.RESET)
+			sys.stdout.write(Color.LB+"╔═══"+Color.LR+"["+Color.LG+"ENFORCER"+Color.LB+"=>"+Color.LG+"Layer7"+Color.LR+"]"+Color.LB+"\n╚══> "+Color.RESET)
 			option = input()
 			if option in ['01', '1']:
 				try:
