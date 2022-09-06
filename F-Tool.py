@@ -26,7 +26,7 @@ except Exception as e:
 
 class Color:
 	colorama.init(autoreset=True)
-	LB = colorama.Fore.LIGHTBLUE
+	LB = colorama.Fore.LIGHTBLUE_EX
 	LC = colorama.Fore.CYAN
 	LG = colorama.Fore.GREEN
 	LR = colorama.Fore.RED
