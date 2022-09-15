@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 from shutil import which
 from urllib import parse
 from os import system
@@ -39,11 +38,7 @@ class Home:
 	def getproxies(self):
 		#self.styleText("\n [*] Downloading Proxy...\n")
 		file_name = "utils/http.txt"
-		http_proxies = [
-			"https://api.proxyscrape.com/?request=displayproxies&proxytype=http&timeout=10000&country=all&ssl=all&anonymity=all",
-			"https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http",
-			"https://api.proxyscrape.com/?request=displayproxies&proxytype=http",
-			"https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all"]
+		http_proxies = ["https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all"]
 		with open(file_name, 'w'):
 			for proxies in http_proxies:
 				if httpx.get(proxies).status_code == 200:
